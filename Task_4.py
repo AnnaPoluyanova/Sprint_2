@@ -1,4 +1,4 @@
-#Пыталась испольользовать ии но результат не нравился, сделала пока как понимаю сама
+
 class EmployeeSalary:   
     hourly_payment = 400
     def __init__(self,name, hours, rest_days, email): 
@@ -10,12 +10,12 @@ class EmployeeSalary:
     def get_hours(cls,name, hours, rest_days, email):
         if hours is None:
             hours=(7 - rest_days) * 8
-        return name, hours, rest_days, email
+        return cls(name, hours, rest_days, email)
     @classmethod
     def get_email(cls,name, hours, rest_days, email):
         if email is None:
             email = f"{name}@email.com"
-        return name, hours, rest_days, email
+        return cls(name, hours, rest_days, email)
     @classmethod
     def set_hourly_payment(cls,new_value):
         cls.hourly_payment = new_value 
